@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    string s;
+    getline(cin, s);
+
+    int p, n;
+    cin >> p >> n;
+
+    // p es 1-based
+    p--;
+
+    if(p < 0 || p >= s.size()){
+        cout << "";
+        return 0;
+    }
+
+    int len = min(n, (int)s.size() - p);
+    cout << s.substr(p, len);
+    return 0;
+}
