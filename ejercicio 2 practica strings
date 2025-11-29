@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main(){
+    string s;
+    getline(cin, s);
+
+    int palabras = 0;
+    bool dentro = false;
+
+    for(char c : s){
+        if(!isspace(c) && !dentro){
+            palabras++;
+            dentro = true;
+        }
+        else if(isspace(c)){
+            dentro = false;
+        }
+    }
+
+    cout << palabras;
+    return 0;
+}
