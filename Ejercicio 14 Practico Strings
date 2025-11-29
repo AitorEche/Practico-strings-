@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main(){
+    string s;
+    getline(cin, s);
+
+    int c;
+    cin >> c;
+    c %= 26;
+
+    for(int i=0; i<s.size(); i++){
+        char ch = s[i];
+
+        if(isalpha(ch)){
+            bool may = isupper(ch);
+            char base = may ? 'A' : 'a';
+            s[i] = base + ( (ch - base + c + 26) % 26 );
+        }
+    }
+
+    cout << s;
+    return 0;
+}
