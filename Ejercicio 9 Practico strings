@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main(){
+    string A, B;
+    getline(cin, A);
+    getline(cin, B);
+
+    string C = "";
+
+    // Tomamos solo letras
+    string AA="", BB="";
+    for(char c:A) if(isalpha(c)) AA+=c;
+    for(char c:B) if(isalpha(c)) BB+=c;
+
+    for(char ca : AA){
+        bool enB = false, repetido = false;
+
+        for(char cb : BB)
+            if(cb == ca) enB = true;
+
+        for(char cc : C)
+            if(cc == ca) repetido = true;
+
+        if(enB && !repetido)
+            C += ca;
+    }
+
+    // imprimir con comas
+    for(int i=0; i<C.size(); i++){
+        cout << C[i];
+        if(i < C.size()-1) cout << ",";
+    }
+
+    return 0;
+}
